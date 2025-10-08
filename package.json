@@ -16,8 +16,10 @@
   },
   "dependencies": {
     "@types/qrcode": "^1.5.5",
+    "@types/qrcode-terminal": "^0.12.2",
     "jimp": "^1.6.0",
     "qrcode": "^1.5.4",
-    "qrcode-reader": "^1.0.4"
+    "qrcode-reader": "^1.0.4",
+    "qrcode-terminal": "^0.12.0"
   }
 }

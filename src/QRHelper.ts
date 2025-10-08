@@ -2,6 +2,7 @@ import fs from "fs";
 import QRCode from "qrcode";
 import { Jimp } from "jimp";
 import QrCode from "qrcode-reader";
+import QrCodeTerminal from "qrcode-terminal";
 import DefaultError from "./errors/DefaultError";
 
 /**
@@ -83,6 +84,23 @@ export default class QRHelper {
       return await QRCode.toDataURL(code);
     } catch (err) {
       throw new DefaultError("Failed to generate QR Code: " + err.message);
+    }
+  }
+
+  /**
+   * Generates a QR code and prints it to the terminal.
+   *
+   * @param {string} code - The text to encode in the QR code.
+   * @param {boolean} small - Whether to generate a small-sized QR code.
+   * @return {Promise<void>} A promise that resolves when the QR code has been printed to the terminal.
+   */
+  static async printQRTerminal(code: string, small: boolean = false): Promise<void> {
+    try {
+      QrCodeTerminal.generate(code, { small });
+    } catch (error) {
+      throw new DefaultError(
+        "Failed to print QR Code to terminal: " + error.message
+      );
     }
   }
 }

@@ -17,6 +17,11 @@ export const readQRCodeFromURL = QRHelper.readQRCodeFromURL;
 export const generateQRDataUrl = QRHelper.generateQRDataUrl;
 
 /**
+ * Re-exports the printQRTerminal method from QRHelper for external use.
+ */
+export const printQRTerminal = QRHelper.printQRTerminal;
+
+/**
  * Package main class for MyQRIS
  * @class MyQRIS
  */
