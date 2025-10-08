@@ -117,7 +117,7 @@ import { makeQRPayment, printQRTerminal, readQRCodeFromURL } from "my-qris";
 ## 🧾 License
 
 **MIT License**
-© 2025 Ferdian Satria ([@Ferdian9991](https://github.com/Ferdian9991))
+© 2025 Ferdian Satria Akbar ([@Ferdian9991](https://github.com/Ferdian9991))
 </br>
 See [LICENSE](./LICENSE) for more information.
 

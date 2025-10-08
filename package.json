@@ -1,9 +1,13 @@
 {
   "name": "my-qris",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Javascript package for generating dynamic QRIS codes.",
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ferdian9991/my-qris"
+  },
   "scripts": {
     "package:dev": "ts-node src/index.ts",
     "package:build": "tsc"
