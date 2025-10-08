@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But keep dist folder and its contents
+!dist/
+!dist/**
+
+# Keep important files for npm
+!package.json
+!README.md
+!LICENSE
