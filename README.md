@@ -2,10 +2,6 @@
   <img src="https://github.com/Ferdian9991/my-qris/blob/main/banner.png" alt="My QRIS Banner" width="800">
 </p>
 
-<h1 align="center">
-  <b>My QRIS</b> <br>
-</h1>
-
 <p align="center">A lightweight JavaScript package for generating and manipulating <b>QRIS (QR Code Indonesian Standard)</b> payments dynamically.</p>
   
 <p align="center">
