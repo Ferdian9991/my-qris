@@ -1,0 +1,17 @@
+{
+  "name": "my-qris",
+  "version": "1.0.0",
+  "description": "A Javascript package for generating dynamic QRIS codes.",
+  "main": "index.js",
+  "scripts": {
+    "package:dev": "ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "Ferdian9991<ferdisatria15@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-loader": "^9.5.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
