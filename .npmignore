@@ -4,6 +4,8 @@
 # But keep dist folder and its contents
 !dist/
 !dist/**
+!examples/
+!examples/**
 
 # Keep important files for npm
 !package.json
