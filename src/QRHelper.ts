@@ -38,8 +38,8 @@ export default class QRHelper {
 
         qr.decode(image.bitmap);
       });
-    } catch (error: any) {
-      throw new Error("Failed to read image: " + error.message);
+    } catch (error) {
+      throw new DefaultError("Failed to read image: " + error.message);
     }
   }
 
@@ -68,8 +68,8 @@ export default class QRHelper {
 
         qr.decode(image.bitmap);
       });
-    } catch (error: any) {
-      throw new Error("Failed to read image from URL: " + error.message);
+    } catch (error) {
+      throw new DefaultError("Failed to read image from URL: " + error.message);
     }
   }
 
@@ -94,7 +94,10 @@ export default class QRHelper {
    * @param {boolean} small - Whether to generate a small-sized QR code.
    * @return {Promise<void>} A promise that resolves when the QR code has been printed to the terminal.
    */
-  static async printQRTerminal(code: string, small: boolean = false): Promise<void> {
+  static async printQRTerminal(
+    code: string,
+    small: boolean = false
+  ): Promise<void> {
     try {
       QrCodeTerminal.generate(code, { small });
     } catch (error) {

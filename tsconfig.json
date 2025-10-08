@@ -1,23 +1,24 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
+    "target": "ES6",
     "declaration": true,
     "removeComments": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES6",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "incremental": true,
-    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "esModuleInterop": true,
-    "lib": ["es2021", "dom"],
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "incremental": true,
+    "lib": ["ES2021", "DOM"],
     "noFallthroughCasesInSwitch": false
   },
-  "include": ["src/", "webpack.config.js"]
+  "include": ["src/"]
 }

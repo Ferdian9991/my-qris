@@ -22,15 +22,6 @@ export const generateQRDataUrl = QRHelper.generateQRDataUrl;
 export const printQRTerminal = QRHelper.printQRTerminal;
 
 /**
- * Package main class for MyQRIS
- * @class MyQRIS
+ * Re-exports the makeQRPayment method from QRIS for external use.
  */
-export default class MyQRIS extends QRIS {
-  /**
-   * Creates an instance of the MyQRIS class.
-   * This class extends the QRIS class and includes the QRHelper for QR code related functionalities.
-   */
-  constructor() {
-    super();
-  }
-}
+export const makeQRPayment = QRIS.makeQRPayment;

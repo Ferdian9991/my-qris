@@ -3,5 +3,5 @@ dist/
 coverage/
 docs/
 .npmrc
-src/test.ts
+test.ts
 src/qr-image-test.jpeg
