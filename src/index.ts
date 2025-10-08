@@ -25,3 +25,8 @@ export const printQRTerminal = QRHelper.printQRTerminal;
  * Re-exports the makeQRPayment method from QRIS for external use.
  */
 export const makeQRPayment = QRIS.makeQRPayment;
+
+/**
+ * Re-exports the getInfo method from QRIS for external use.
+ */
+export const getInfo = QRIS.getInfo;

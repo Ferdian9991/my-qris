@@ -50,27 +50,24 @@ export default class QRHelper {
    * @return {Promise<string>} A promise that resolves to the decoded QR code text.
    */
   static async readQRCodeFromURL(url: string): Promise<string> {
-    try {
-      // Load image from URL using Jimp
-      const image = await Jimp.read(url);
+    // Load image from URL using Jimp
+    const image = await Jimp.read(url);
 
-      // Create a QR code reader
-      const qr = new QrCode();
+    // Create a QR code reader
+    const qr = new QrCode();
 
-      return new Promise((resolve, reject) => {
-        qr.callback = (err, value) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(value?.result || null);
-          }
-        };
+    // Read the QR code from the image
+    return new Promise((resolve) => {
+      qr.callback = (err, value) => {
+        if (err) {
+          throw new DefaultError("Failed to decode QR Code: " + err);
+        } else {
+          resolve(value?.result || null);
+        }
+      };
 
-        qr.decode(image.bitmap);
-      });
-    } catch (error) {
-      throw new DefaultError("Failed to read image from URL: " + error.message);
-    }
+      qr.decode(image.bitmap);
+    });
   }
 
   /**

@@ -97,6 +97,7 @@ import { makeQRPayment, printQRTerminal, readQRCodeFromURL } from "my-qris";
 | `readQRCodeFromFile(filePath)`                          | Reads and decodes a QR code from an file locally.                  | `filePath`: string — the local path of image source.                                                                                         | QRIS data string             |
 | `makeQRPayment({ qrCode, amount, fee, feeType })` | Generates a new QRIS payment code based on an existing QR code. | - `qrCode`: base QR string<br>- `amount`: transaction amount<br>- `fee`: fee value<br>- `feeType`: `"percentage"` or `"flat"` | New QRIS code string         |
 | `generateQRDataUrl(qrString)`                     | Converts QRIS string into a Base64 QR image data URL.           | `qrString`: QRIS code string                                                                                                  | `Promise<string>` (data URL) |
+| `getInfo(qrString)`                     | Detail information of QRIS like merchant name, etc.           | `qrString`: QRIS code string                                                                                                  | `QRISInfo`: Information of QRIS  |
 | `printQRTerminal(qrString, small?)`               | Prints the QR code to terminal using ASCII format.              | - `qrString`: QRIS code<br>- `small` *(optional)*: boolean to toggle small display                                            | `void`                       |
 
 ---
@@ -113,6 +114,7 @@ import { makeQRPayment, printQRTerminal, readQRCodeFromURL } from "my-qris";
 | TypeScript support        | ✅      | Fully typed with `.d.ts` declarations                 |
 | Error handling            | ✅      | Includes `DefaultError` and `ValidationError` classes |
 | Local file QR reading     | ✅      | Decode QR image locally                               |
+| Get QRIS information      | ✅      | Detail information of QRIS like merchant name, etc.   |
 
 ---
 

@@ -1,11 +1,62 @@
 import DefaultError from "./errors/DefaultError";
 import ValidationError from "./errors/ValidationError";
 
+export type QRISInfo = {
+  id: string;
+  nns: string;
+  nmid: string;
+  merchantName: string;
+  mercantCity: string;
+};
+
 /**
  * QRIS class for QR payment helpers
  * @class QRIS
  */
 export default class QRIS {
+  /**
+   * Get information from a QR code string
+   *
+   * @param {string} qrCode - The QR code string to extract information from
+   * @returns {QRISInfo} - An object containing the extracted information
+   */
+  public static getInfo(qrCode: string): QRISInfo {
+    // Validate QR input
+    if (!qrCode || typeof qrCode !== "string") {
+      throw new ValidationError("QR code must be a non-empty string");
+    }
+
+    // Validate QR is valid
+    if (!QRIS.checkIsValid(qrCode)) {
+      throw new ValidationError("Invalid QR code CRC16");
+    }
+
+    // Extract information
+    const id = qrCode.includes("A01") ? "A01" : "01";
+    const nmid = "ID" + QRIS.getBetween(qrCode, "15ID", "0303");
+    const merchantName = QRIS.getBetween(qrCode, "ID59", "60")
+      .substring(2)
+      .trim();
+    const mercantCity = QRIS.getBetween(qrCode, merchantName + "60", "610")
+      // Remove 2 digit length prefix
+      .substring(2);
+
+    // Get merchant city
+    const nnsMatch = qrCode.match(/(?<=0118).+?(?=ID)/g);
+    let nns = "UNKNOWN";
+    if (nnsMatch && nnsMatch.length > 0) {
+      nns = nnsMatch[nnsMatch.length - 1].substring(0, 8);
+    }
+
+    return {
+      id,
+      nns,
+      nmid,
+      merchantName: merchantName.toUpperCase(),
+      mercantCity,
+    };
+  }
+
   /**
    * Create a QR payment string with the specified amount and optional fee
    *
@@ -31,6 +82,7 @@ export default class QRIS {
       throw new ValidationError("QR code must be a non-empty string");
     }
 
+    // Validate QR is valid
     if (!QRIS.checkIsValid(qrCode)) {
       throw new ValidationError("Invalid QR code CRC16");
     }
@@ -144,5 +196,25 @@ export default class QRIS {
     if (hex.length === 3) hex = "0" + hex;
 
     return hex;
+  }
+
+  /**
+   * Get substring between two markers
+   *
+   * @param {string} str - The input string
+   * @param {string} start - The starting marker
+   * @param {string} end - The ending marker
+   * @returns {string} - The substring between the markers, or empty string if not found
+   */
+  private static getBetween(str: string, start: string, end: string): string {
+    let startIdx = str.indexOf(start);
+    if (startIdx === -1) return "";
+
+    // Move index to end of start marker
+    startIdx += start.length;
+    let endIdx = str.indexOf(end, startIdx);
+
+    // If end marker not found, return till end of string
+    return str.slice(startIdx, endIdx);
   }
 }
