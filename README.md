@@ -111,8 +111,7 @@ import { makeQRPayment, printQRTerminal, readQRCodeFromURL } from "my-qris";
 | Fee type control          | ✅      | Supports percentage and flat fee                      |
 | TypeScript support        | ✅      | Fully typed with `.d.ts` declarations                 |
 | Error handling            | ✅      | Includes `DefaultError` and `ValidationError` classes |
-| Local file QR reading     | ⏳      | Planned for next release                              |
-| JSON serialization        | ⏳      | Future support for QRIS metadata export               |
+| Local file QR reading     | ✅      | Decode QR image locally                               |
 
 ---
 
