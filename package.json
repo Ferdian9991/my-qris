@@ -13,5 +13,9 @@
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "jimp": "^1.6.0",
+    "qrcode-reader": "^1.0.4"
   }
 }

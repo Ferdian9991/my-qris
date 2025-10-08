@@ -4,3 +4,4 @@ coverage/
 docs/
 .npmrc
 src/test.ts
+src/qr-image-test.jpeg
