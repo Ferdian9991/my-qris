@@ -5,3 +5,4 @@ docs/
 .npmrc
 test.ts
 src/qr-image-test.jpeg
+qris-test.*
