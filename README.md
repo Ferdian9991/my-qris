@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Ferdian9991/my-qris/blob/main/banner.png" alt="My QRIS Banner" width="600">
+  <img src="https://github.com/Ferdian9991/my-qris/blob/main/banner.jpeg" alt="My QRIS Banner" width="800">
 </p>
 
 <h1 align="center">
