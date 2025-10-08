@@ -1,6 +1,8 @@
 import fs from "fs";
+import QRCode from "qrcode";
 import { Jimp } from "jimp";
 import QrCode from "qrcode-reader";
+import DefaultError from "./errors/DefaultError";
 
 /**
  * A helper class for generating or reading QR codes.
@@ -67,6 +69,20 @@ export default class QRHelper {
       });
     } catch (error: any) {
       throw new Error("Failed to read image from URL: " + error.message);
+    }
+  }
+
+  /**
+   * Generates a QR code and prints its Data URL to the console.
+   *
+   * @param {string} code - The text to encode in the QR code.
+   * @return {Promise<string>} A promise that resolves to the Data URL of the generated QR code.
+   */
+  static async generateQRDataUrl(code: string): Promise<string> {
+    try {
+      return await QRCode.toDataURL(code);
+    } catch (err) {
+      throw new DefaultError("Failed to generate QR Code: " + err.message);
     }
   }
 }

@@ -12,6 +12,11 @@ export const readQRCodeFromFile = QRHelper.readQRCodeFromFile;
 export const readQRCodeFromURL = QRHelper.readQRCodeFromURL;
 
 /**
+ * Re-exports the generateQRDataUrl method from QRHelper for external use.
+ */
+export const generateQRDataUrl = QRHelper.generateQRDataUrl;
+
+/**
  * Package main class for MyQRIS
  * @class MyQRIS
  */
