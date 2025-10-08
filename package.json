@@ -8,7 +8,17 @@
     "package:dev": "ts-node src/index.ts",
     "package:build": "tsc"
   },
-  "keywords": [],
+  "keywords": [
+    "QRIS",
+    "QR Code",
+    "Dynamic QRIS",
+    "QRIS Generator",
+    "JavaScript",
+    "TypeScript",
+    "QRIS Dinamis",
+    "Pembayaran QRIS",
+    "QRIS Payment"
+  ],
   "author": "Ferdian9991<ferdisatria15@gmail.com>",
   "license": "MIT",
   "devDependencies": {
